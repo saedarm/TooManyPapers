@@ -1,6 +1,6 @@
 TooManyPapers - AI-Powered Research Paper & News Aggregator
 
-A production-ready Go application that automatically collects, summarizes, and delivers AI/ML research papers and industry news using MongoDB Atlas, OpenAI, and automated email digests.
+A production-ready Go application that automatically collects, summarizes, and delivers AI/ML research papers and industry news using MongoDB Atlas, and automated email digests.
 
 ## 🚀 Features
 
@@ -44,7 +44,7 @@ A production-ready Go application that automatically collects, summarizes, and d
 
 ## 🛠️ Complete Setup Guide
 
-### Step 1: Clone the Repository
+### Step 1: Create Your Own Repo
 
 ```bash
 # Create project directory
@@ -436,7 +436,7 @@ func (s *Server) Shutdown(ctx context.Context) error {
 
 1. Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register)
 2. Sign up for a free account
-3. Create a new project called "PaperAggro"
+3. Create a new project called XXXX
 4. Create a free M0 cluster
 5. Choose your preferred region
 
@@ -444,7 +444,7 @@ func (s *Server) Shutdown(ctx context.Context) error {
 
 1. Go to **Database Access** in the left menu
 2. Add a database user:
-   - Username: `saedarm`
+   - Username: `user`
    - Password: Create a strong password
    - Database User Privileges: Atlas Admin
 
@@ -471,7 +471,7 @@ func (s *Server) Shutdown(ctx context.Context) error {
 ```bash
 # 1. Clone and setup
 git clone <your-repo-url>
-cd paperaggro
+cd repo
 
 # 2. Install dependencies
 make setup
@@ -498,19 +498,11 @@ make run
 - [ ] MongoDB IP whitelist configured
 - [ ] Test connection successful
 
-## 📊 Monitoring & Usage
 
-### Application Logs
 
-```bash
-# View real-time logs
-tail -f paperaggro.log
 
-# Check for errors
-grep ERROR paperaggro.log
-```
 
-### MongoDB Atlas Dashboard
+## MongoDB Atlas Dashboard
 
 1. Go to your [Atlas Dashboard](https://cloud.mongodb.com)
 2. Monitor:
@@ -538,37 +530,7 @@ curl -X POST http://localhost:8080/api/collect \
 
 ## 🐳 Docker Deployment (Optional)
 
-### Create `Dockerfile`
 
-```dockerfile
-FROM golang:1.21-alpine AS builder
-WORKDIR /app
-COPY go.mod go.sum ./
-RUN go mod download
-COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -o paperaggro cmd/api/main.go
-
-FROM alpine:latest
-RUN apk --no-cache add ca-certificates tzdata
-WORKDIR /root/
-COPY --from=builder /app/paperaggro .
-COPY --from=builder /app/.env .
-EXPOSE 8080
-CMD ["./paperaggro"]
-```
-
-### Run with Docker
-
-```bash
-# Build image
-docker build -t paperaggro .
-
-# Run container
-docker run -d \
-  --name paperaggro \
-  --env-file .env \
-  -p 8080:8080 \
-  paperaggro
 ```
 
 ## 🔍 Troubleshooting
@@ -678,6 +640,3 @@ MIT License - see LICENSE file
 - Check MongoDB Atlas documentation
 - Review OpenAI API documentation
 
----
-
-**Built with ❤️ using Go, MongoDB Atlas, and AI**
