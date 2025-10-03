@@ -211,7 +211,7 @@ func main() {
     
     // Build connection string
     uri := fmt.Sprintf(
-        "mongodb+srv://saedarm:%s@paperaggro.xacpcro.mongodb.net/?retryWrites=true&w=majority&appName=PaperAggro",
+        "mongodb+srv://o.mongodb.net/?retryWrites=true&w=majority&appName=o",
         password,
     )
     
