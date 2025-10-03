@@ -48,11 +48,11 @@ A production-ready Go application that automatically collects, summarizes, and d
 
 ```bash
 # Create project directory
-mkdir paperaggro
-cd paperaggro
+mkdir repo
+cd repo
 
 # Initialize Go module
-go mod init paperaggro
+go mod init repo
 ```
 
 ### Step 2: Create Project Structure
@@ -69,7 +69,7 @@ mkdir -p web/templates
 
 #### 3.1 Create `go.mod`
 ```go
-module paperaggro
+module repo
 
 go 1.21
 
@@ -88,7 +88,7 @@ require (
 ```env
 # MongoDB Atlas Connection (REQUIRED)
 MONGODB_PASSWORD=your_mongodb_password_here
-DATABASE_NAME=paperaggro
+DATABASE_NAME=dbname
 
 # Server Configuration
 PORT=8080
@@ -99,7 +99,7 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USERNAME=your-email@gmail.com
 SMTP_PASSWORD=your-gmail-app-password
-EMAIL_FROM=PaperAggro <your-email@gmail.com>
+EMAIL_FROM=REPO <your-email@gmail.com>
 EMAIL_RECIPIENTS=recipient1@example.com,recipient2@example.com
 
 # OpenAI Configuration (Optional - for AI summaries)
@@ -128,7 +128,7 @@ RUN_ON_STARTUP=true
 .PHONY: help setup test-conn run build test clean install-deps
 
 help:
-	@echo "PaperAggro - AI News Aggregator Setup"
+	@echo "TooManyPapers - AI News Aggregator Setup"
 	@echo ""
 	@echo "Commands:"
 	@echo "  make setup      - Complete initial setup"
